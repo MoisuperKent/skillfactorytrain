@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    font-family: "Iosevka Charon", monospace;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    border-bottom: 2px solid black;
+    justify-content: center;
+    padding: 20px 0px;
+    margin-bottom: 52px;
+}
+
+main {
+    flex-grow: 1;
+    padding: 0px 120px;
+}
+
+footer {
+    flex-shrink: 0;
+    border-top: 2px solid black;
+    margin-top: 52px;
+    padding: 20px 30px;
+
+}
+
+#loadAnimals-btn {
+    display: block;
+    width: fit-content;
+    background-color: rgb(113, 174, 214);
+    padding: 10px;
+    margin: 0px auto 20px auto;
+    font-family: inherit;
+    color: rgb(42 0 162);
+}
+
+.animals__loader {
+    position: fixed;
+    z-index: 999;
+    left: calc(50% - 200px);
+    top: calc(50% - 100px);
+    width: 400px;
+    height: 200px;
+    background-color: rgba(189, 201, 201, 0.605);
+}
+
+/* Сам кружок */
+.animals__loader::before {
+    content: ""; 
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    animation: effect 1s linear infinite;
+}
+
+@keyframes effect {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.animals {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: auto;
+    gap: 12px;
+}
+
+.animals img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* @media screen and (max-width: 1400px) {
+    .animals {
+        grid-template-columns: repeat(4, 250px);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .animals {
+        grid-template-columns: repeat(3, 200px);
+        grid-auto-rows: 200px;
+    }
+} */
